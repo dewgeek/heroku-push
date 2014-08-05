@@ -56,7 +56,7 @@ class Heroku::Command::Push < Heroku::Command::Base
 private
 
   def is_url?(string)
-    URI.parse(string).scheme rescue nil
+    URI.parse(URI.encode(string)).scheme rescue nil
   end
 
   def prepare_buildpack(buildpack)
